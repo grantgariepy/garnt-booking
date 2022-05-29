@@ -32,6 +32,7 @@
     border: 1px solid white;
     padding: 10px;
     border-radius: 10px;
+    background-color: #da4244;
 }
 
 .headerDesc{
@@ -86,9 +87,11 @@
 .date{
     position: absolute;
     top: 50px;
+    z-index: 2;
 }
 
 .options{
+    z-index: 2;
     position: absolute;
     top: 50px;
     background-color: #fff;

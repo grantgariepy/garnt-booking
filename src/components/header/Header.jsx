@@ -1,6 +1,6 @@
 import "./header.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi } from "@fortawesome/free-solid-svg-icons"
+import { faBed, faCalendarDays, faCar, faMap, faPerson, faPlane, faTaxi } from "@fortawesome/free-solid-svg-icons"
 import { DateRange } from "react-date-range";
 import { useState } from "react";
 import 'react-date-range/dist/styles.css';
@@ -50,7 +50,7 @@ const Header = ({type}) => {
                     <span>Car Rentals</span>
                 </div>
                 <div className="headerListItem">
-                    <FontAwesomeIcon icon={faBed} />
+                    <FontAwesomeIcon icon={faMap} />
                     <span>Attractions</span>
                 </div>
                 <div className="headerListItem">
