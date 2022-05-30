@@ -24,15 +24,15 @@ const SearchItem = () => {
         </span>
         </div>
         <div className="siDetails">
-        <div className="siRating">
-          <span>Excellent</span>
-          <button>9.2</button>
-        </div>
-        <div className="siDetailTexts">
-          <span className="siPrice">$59</span>
-          <span className="siTaxOp">Includes taxes and fees</span>
-          <button className="siCheckButton">See availability</button>
-        </div> 
+          <div className="siRating">
+            <span className="siWordRating">Excellent</span>
+            <button>9.2</button>
+          </div>
+          <div className="siDetailTexts">
+            <span className="siPrice">$59</span>
+            <span className="siTaxOp">Includes taxes and fees</span>
+            <button className="siCheckButton">See availability</button>
+          </div> 
         </div>
     </div>
   )

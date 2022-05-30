@@ -71,14 +71,14 @@ const Header = ({type}) => {
 
                 <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
             <p className="headerDesc">Get rewarded for your travels - unlock instant savings of 10% or more with a free grantbooking.com account</p>
-            <button className="headerBtn">Sign in / Register</button>
+            <button className="headerBtnSign">Sign in / Register</button>
             <div className="headerSearch">
                 <div className="headerSearchItem">
                     <FontAwesomeIcon icon={faBed} className="headerIcon" />
                     <input type="text" placeholder="Where are you going?" className="headerSearchInput" onChange={(e) => setDestination(e.target.value)} />
                 </div>
                 <div className="headerSearchItem">
-                    <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
+                    <FontAwesomeIcon onClick={()=>setOpenDate(!openDate)} icon={faCalendarDays} className="headerIcon" />
                     <span onClick={()=>setOpenDate(!openDate)} className="headerSearchText">{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
                     {openDate &&<DateRange editableDateInputs={true}
                     onChange={item=>setDate([item.selection])}
@@ -89,7 +89,7 @@ const Header = ({type}) => {
                     />}
                 </div>
                 <div className="headerSearchItem">
-                    <FontAwesomeIcon icon={faPerson} className="headerIcon" />
+                    <FontAwesomeIcon onClick={()=>setOpenOptions(!openOptions)} icon={faPerson} className="headerIcon" />
                     <span onClick={()=>setOpenOptions(!openOptions)} className="headerSearchText">{`${options.adult} adult • ${options.children} children • ${options.room} room`}</span>
                     {openOptions && <div className="options">
                         <div className="optionItem">

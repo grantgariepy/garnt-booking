@@ -1,3 +1,50 @@
+@media only screen and (max-width: 600px) {
+    
+    div.listContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        flex-direction: column;
+    }
+    div.listSearch{
+        color: white;
+        background-color: #1d3453;
+        border-radius:  0 0 10px 10px;
+        position: absolute;
+        margin-top: 45px;
+        height: max-content;
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+
+        
+    }
+    .listWrapper{
+        width: 100%;
+        max-width: 1024px;
+        display: flex;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    div.lsItem{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 10px;
+        
+    }
+    .listResult{
+        display: flex;
+        flex-direction: column;
+        padding-top: 300px;
+    }
+    
+    
+  }
+
+
 .listContainer{
     display: flex;
     justify-content: center;

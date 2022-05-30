@@ -1,3 +1,14 @@
+@media only screen and (max-width: 600px) {
+    div.pList{
+        width: 90%;
+        max-width: 1024px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+    }
+  }
+
 .pList{
     width: 100%;
     max-width: 1024px;

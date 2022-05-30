@@ -1,3 +1,68 @@
+@media only screen and (max-width: 600px) {
+    div.header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 10px;
+    }
+    div.headerSearch{
+        height: 15px;
+        background-color: #fff;
+        border: 3px solid #da4244;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px 0px;
+        border-radius: 5px;
+        position: absolute;
+        bottom: -25px;
+        width: 90%;
+        max-width: 1024px;
+        margin-left: 15px;
+    }
+    span.headerSearchText{
+        display: none;
+    }
+    button.headerBtn{
+        height: 30px;
+        
+        padding-bottom: 5px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        width: max-content;
+    }
+
+    div.date{
+        position: absolute;
+        left: 0;
+        z-index: 2;
+    }
+    div.options{
+        z-index: 2;
+        position: absolute;
+        right: 0;
+        background-color: #fff;
+        color: gray;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.4);
+        -webkit-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.4);
+    }
+    div.headerList{
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    div.headerSearchItem{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+  }
+
 .header{
     background-color: #1d3453;
     color: white;
@@ -49,6 +114,15 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.headerBtnSign{
+    background-color: #da4244;
+    color: white;
+    font-weight: 500;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 .headerSearch{
     height: 30px;
@@ -61,7 +135,7 @@
     border-radius: 5px;
     position: absolute;
     bottom: -25px;
-    width: 100%;
+    width: 80%;
     max-width: 1024px;
 }
 
