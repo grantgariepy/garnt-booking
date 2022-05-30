@@ -11,22 +11,25 @@
         color: white;
         background-color: #1d3453;
         border-radius:  0 0 10px 10px;
-        position: absolute;
-        margin-top: 45px;
+        position: relative;
+        margin-top: -35px;
+        overflow: hidden;
         height: max-content;
-        width: 95%;
+        width: 90%;
         display: flex;
         flex-direction: column;
-
+    
         
     }
-    .listWrapper{
+    div.listWrapper{
         width: 100%;
         max-width: 1024px;
         display: flex;
         gap: 20px;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     div.lsItem{
         display: flex;
@@ -38,7 +41,7 @@
     .listResult{
         display: flex;
         flex-direction: column;
-        padding-top: 300px;
+        
     }
     
     
@@ -49,6 +52,8 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    align-items: center;
+    flex-direction: column;
 }
 
 .listWrapper{
