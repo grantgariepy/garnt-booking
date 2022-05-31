@@ -10,9 +10,9 @@
     div.listSearch{
         color: white;
         background-color: #1d3453;
-        border-radius:  0 0 10px 10px;
+        border-radius: 10px;
         position: relative;
-        margin-top: -35px;
+        margin-top: -25px;
         overflow: hidden;
         height: max-content;
         width: 90%;
