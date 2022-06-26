@@ -2,45 +2,54 @@ import "./header.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBed, faCalendarDays, faCar, faMap, faPerson, faPlane, faTaxi } from "@fortawesome/free-solid-svg-icons"
 import { DateRange } from "react-date-range";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import {format} from "date-fns";
 import { useNavigate } from "react-router-dom";
+import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
 
 
 
-const Header = ({type}) => {
+const Header = ({ type }) => {
     const [destination, setDestination] = useState("");
     const [openDate, setOpenDate] = useState(false);
-    const [date, setDate] = useState([
-        {
-            startDate: new Date(),
-            endDate: new Date(),
-            key: 'selection'
-        }
+    const [dates, setDates] = useState([
+      {
+        startDate: new Date(),
+        endDate: new Date(),
+        key: "selection",
+      },
     ]);
     const [openOptions, setOpenOptions] = useState(false);
     const [options, setOptions] = useState({
-        adult: 1,
-        children: 0,
-        room: 1,
-      });
-
+      adult: 1,
+      children: 0,
+      room: 1,
+    });
+  
     const navigate = useNavigate();
+    
+    const {user} = useContext(AuthContext);
+  
+    const handleOption = (name, operation) => {
+      setOptions((prev) => {
+        return {
+          ...prev,
+          [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+        };
+      });
+    };
+  
+    const { dispatch } = useContext(SearchContext);
+  
+    
 
-      const handleOption = (name, operation) => {
-        setOptions((prev) => {
-          return {
-            ...prev,
-            [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
-          };
-        });
-      };
-
-    const handleSearch = () => {
-        navigate("/hotels", {state: { destination, date, options }})
-    }
+  const handleSearch = () => {
+    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
+    navigate("/hotels", { state: { destination, dates, options } });
+  };
   return (
     <div className="header">
         <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
@@ -71,7 +80,7 @@ const Header = ({type}) => {
 
                 <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
             <p className="headerDesc">Get rewarded for your travels - unlock instant savings of 10% or more with a free grantbooking.com account</p>
-            <button className="headerBtnSign">Sign in / Register</button>
+            {!user && <button className="headerBtnSign">Sign in / Register</button>}
             <div className="headerSearch">
                 <div className="headerSearchItem">
                     <FontAwesomeIcon icon={faBed} className="headerIcon" />
@@ -79,11 +88,11 @@ const Header = ({type}) => {
                 </div>
                 <div className="headerSearchItem">
                     <FontAwesomeIcon onClick={()=>setOpenDate(!openDate)} icon={faCalendarDays} className="headerIcon" />
-                    <span onClick={()=>setOpenDate(!openDate)} className="headerSearchText">{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+                    <span onClick={()=>setOpenDate(!openDate)} className="headerSearchText">{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
                     {openDate &&<DateRange editableDateInputs={true}
-                    onChange={item=>setDate([item.selection])}
+                    onChange={item=>setDates([item.selection])}
                     moveRangeOnFirstSelection={false}
-                    ranges={date}
+                    ranges={dates}
                     className="date"
                     minDate={new Date()}
                     />}
